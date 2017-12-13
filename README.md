@@ -9,9 +9,12 @@ along with a PicKit 3 to flash the Pic. This compiler is VERY cool and capable. 
 
 The sound module is a DFPlayer Mini, a small MP3 player module that can play MP3 or WAV files when instructed by the micro. The unit is triggered by an opto-coupled input directly from your horn. I am using a 60 watt audio amplifier module and horn speaker for this project, but any combination of amplifier and speaker that can take a line level audio input will work. I am mixing the stereo output down to mono, but this unit can output full high quality stereo sound.
 
+I have included some sample sounds that you can use to play with. In the "sample sounds" zip file you will find 2 folders. Copy folder 01 to your microTF card if you only want horn sounds. Copy both folders if you also want start-up sounds. These are just samples, you can use whatever you want for your sounds. Just remember, if this is your actual horn, make sure, for your own safety, that the sounds are effective.
+
 As far as connecting the circuit to your vehicle, the 12v power must come from a "switched" power source. This will kill the power to the circuit when the key is off, so your battery won't die unexpectedly. The input from your horn switch can be grabbed directly from the 2 spade lugs that connect to your existing horn. Just disconnect these from your horn and attach to the circuits horn input. This connection is opto-coupled and polarized, so check. One side is GND and the other is 12v when you press your horn button.
 
-"This is not intended to be a replacement for a DOT approved horn. Use reponsibly". There... I said it.
+THIS PROJECT IS A NOVELTY AND IS NOT INTENDED AS A SUBSTITUTE FOR A DOT APPROVED MOTOR VEHICLE HORN! USE RESPONSIBLY!
+There... I said it, you've been warned.
 
 ********************************************************************************************
 The following is taken from the code listing if you want to get a handle on how this works.
