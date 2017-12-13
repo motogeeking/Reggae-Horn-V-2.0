@@ -1,0 +1,217 @@
+#chip 12F1840, 32
+#config MCLRE=OFF, WDT=OFF
+
+#define TX portA.0
+#define RX portA.1
+#define HornSw portA.2
+#define MP3Busy portA.5
+#define StartCycleVolPot portA.4
+
+#define USART_BAUD_RATE 9600
+#define USART_BLOCKING
+
+#define StartCycleVol (readAD(AN3)/25) * 3
+
+dir TX out
+dir RX in
+dir HornSw in
+dir MP3Busy in
+dir StartCycleVolPot in
+
+On Interrupt UsartRX1Ready call MP3GetData
+IntOff
+
+dim CheckSum as word
+dim CmdAdd as word
+
+dim RecData(10)
+RecData = 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+dim Cmd(10)
+Cmd = 0x7E, 0xFF, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEF
+
+#define PressTimeOut 5
+
+wait 1 s
+
+hserreceive(Rr)
+
+IntOn
+IndexPtr = 1
+MP3QTotalF
+wait 150 ms
+IntOff
+TotalFolders = RecData(7) - 1
+
+IntOn
+IndexPtr = 1
+MP3QTracksF 1
+wait 150 ms
+IntOff
+TracksInFolder1 = RecData(7)
+EPRead 1, HornSound
+if HornSound < 1 or HornSound > TracksInFolder1 then
+    HornSound = 1
+    EPWrite 1, HornSound
+end if
+
+if TotalFolders = 2 then
+    IntOn
+    IndexPtr = 1
+    MP3QTracksF 2
+    wait 150 ms
+    IntOff
+    TracksInFolder2 = RecData(7)
+    EPRead 2, StartSound
+    if StartSound < 1 or StartSound > TracksInFolder2 then
+        StartSound = 1
+        EPWrite 2, StartSound
+    end if
+end if
+
+EPRead 0, HornVol
+if HornVol < 1 or HornVol > 30 then
+    HornVol = 15
+    EPWrite 0, HornVol
+end if
+
+if HornSw = 0 then
+    HornVol = 3
+
+    NextVolume:
+
+    MP3Vol HornVol
+    wait 150 ms
+    MP3PlayFT(1, HornSound)
+    wait 1 s
+    MP3Stop
+    wait 500 ms
+    if HornSw = 1 then
+        EPWrite 0, HornVol
+        goto StartUp
+    end if
+    HornVol = HornVol + 3
+    if HornVol > 30 then HornVol = 3
+    goto NextVolume
+end if
+
+StartUp:
+
+if TotalFolders = 2 then
+    MP3Vol StartCycleVol
+    oldvolume = StartCycleVol
+    wait 150 ms
+    MP3PlayFT(2, StartSound)
+    wait 150 ms
+    StartSound = StartSound + 1
+    if StartSound > TracksInFolder2 then StartSound = 1
+    EPWrite 2, StartSound
+    do while MP3Busy = 0
+       newvolume = StartCycleVol
+       if newvolume <> oldvolume then
+         MP3Vol newvolume
+         wait 150 ms
+         oldvolume = newvolume
+       end if
+    loop
+end if
+
+MP3Vol HornVol
+
+Main:
+
+wait until HornSw = 0
+wait 30 ms
+if HornSw = 1 then goto Main
+
+MP3PlayFT(1, HornSound)
+
+HornCount = 0
+
+do while HornSw = 0
+    wait 100 ms
+
+    HornCount = HornCount + 1
+
+    if HornCount > (PressTimeOut * 10) then
+        MP3Stop
+        wait 150 ms
+        MP3Vol StartCycleVol
+        wait 500 ms
+
+        NextSound:
+
+        HornSound = HornSound + 1
+        if HornSound > TracksInFolder1 then HornSound = 1
+        MP3PlayFT(1, HornSound)
+        wait 1 s
+        MP3Stop
+        wait 500 ms
+
+        if HornSw = 1 then
+            EPWrite 1, HornSound
+            MP3Vol HornVol
+            wait 150 ms
+            goto Main
+        end if
+        goto NextSound
+    end if
+loop
+
+MP3Stop
+wait 150 ms
+
+goto Main
+
+Sub MP3QTotalF
+    Cmd(4) = 0x4F
+    Cmd(6) = 0x00
+    Cmd(7) = 0x00
+    MP3SendCmd
+End Sub
+
+Sub MP3QTracksF(Folder)
+    Cmd(4) = 0x4E
+    Cmd(6) = 0x00
+    Cmd(7) = Folder
+    MP3SendCmd
+End Sub
+
+Sub MP3PlayFT(Folder, Track)
+    Cmd(4) = 0x0F
+    Cmd(6) = Folder
+    Cmd(7) = Track
+    MP3SendCmd
+End Sub
+
+Sub MP3Stop
+    Cmd(4) = 0x16
+    Cmd(6) = 0x00
+    Cmd(7) = 0x00
+    MP3SendCmd
+end sub
+
+sub MP3Vol(VolSend)
+    Cmd(4) = 0x06
+    Cmd(6) = 0x00
+    Cmd(7) = VolSend
+    MP3SendCmd
+end sub
+
+sub MP3GetData
+    hserreceive(RecData(IndexPtr))
+    IndexPtr = IndexPtr + 1
+end sub
+
+sub MP3SendCmd
+CmdAdd = 0
+for Xx = 2 TO 7
+    CmdAdd = CmdAdd + Cmd(Xx)
+next Xx
+CheckSum = 0 - CmdAdd
+Cmd(8) = CheckSum_H
+Cmd(9) = CheckSum
+for Xx = 1 to 10
+    HSerSend Cmd(Xx)
+next Xx
+end sub
