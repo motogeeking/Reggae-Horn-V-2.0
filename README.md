@@ -42,7 +42,7 @@ If you chose to use start-up sounds, upon turning on your key, the first MP3 fil
 
 You may want the start-up sounds to play at a lower volume than the horn sounds, for instance if you are in your garage. The start-up volume level can be controlled using the potentiometer connected to pin 3 of the PIC12f1840. Just set it to a comfortable level.
 
-Once the key is on, and the optional start-up sound is played,the unit will wait for you to press the horn button.
+Once the key is on, and the optional start-up sound is played, the unit will wait for you to press the horn button.
 
 Since there is only one button, we have to creatively use it to do 3 different things... change the horn volume, select one of possibly many horn sounds and of course, as a button to activate the horn.
 
