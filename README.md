@@ -1,15 +1,15 @@
 # Reggae-Horn-V-2.0
-A fun "horn" project for your motorcycle or other vehicle
+A fun "horn" project for your motorcycle or other vehicle. Heck, get creative and make a custom door bell or talking doll, whatever...
 
-This is a project that I made for my little 125 SSR Razkull motorcycle. I found, by almost getting flattened by a driver that was texting, that the stock horn is not very effective. So I decided to create a horn that really couldn't be ignored. Its LOUD, very effective and not too hard to build. I added a couple of "fun" features to this project also. The project uses a Pic12f1840, an 8 pin, 8 bit microcontroller. I am sure that it can be done with an arduino type micro, but this worked well for me. The code is heavily commented, so if you want to convert it to something else, you can get a handle on what I am doing. It is programmed using Great Cow Basic, a free basic compiler available here...
+This is a project that I made for my little 125 SSR Razkull motorcycle. I found, by almost getting flattened by a driver that was texting, that the stock horn is not very effective. So I decided to create a horn that really couldn't be ignored. Its LOUD, very effective and not too hard to build. I added a couple of "fun" features to this project also. The project uses a Pic12f1840, an 8 pin, 8 bit microcontroller. I am sure that it can be done with an arduino or Atmel type micro, but Pics work well for me. The code is heavily commented, so if you want to convert it to something else, you can get a handle on what I am doing. It is programmed using Great Cow Basic, a free basic compiler available here...
 
 http://gcbasic.sourceforge.net/Typesetter/index.php/Home
 
 along with a PicKit 3 to flash the Pic.
 
-The sound module is a DFPlayer Mini, a small MP3 player module that can play MP3 or WAV files when instructed by the micro.
+The sound module is a DFPlayer Mini, a small MP3 player module that can play MP3 or WAV files when instructed by the micro. The unit is triggered by an opto-coupled input directly from your horn. I am using a 60 watt audio amplifier module and horn speaker for this project, but any combination of amplifier and speaker that can take a line level audio input will work. I am mixing the stereo output down to mono, but this unit can output full high quality stereo sound.
 
-As far as connecting the circuit to your vehicle, the 12v power must come from a "switched" power source. This will kill the power to the circuit when the key is off, so your battery won't die unexpectedly. The input from your horn switch can be grabbed directly from the 2 spade lugs that connect to your existing horn. Just disconnect these from your horn and attach to the circuit. This connection is opto-coupled and polarized, so check. One side is GND and the other is 12v when you press your horn button.
+As far as connecting the circuit to your vehicle, the 12v power must come from a "switched" power source. This will kill the power to the circuit when the key is off, so your battery won't die unexpectedly. The input from your horn switch can be grabbed directly from the 2 spade lugs that connect to your existing horn. Just disconnect these from your horn and attach to the circuits horn input. This connection is opto-coupled and polarized, so check. One side is GND and the other is 12v when you press your horn button.
 
 "This is not intended to be a replacement for a DOT approved horn. Use reponsibly". There... I said it.
 
@@ -19,11 +19,9 @@ The following is taken from the code listing if you want to get a handle on how 
 
 A fun "horn" project for your motorcycle, or other vehicle, that can can play ANY sound you want in the form of an MP3 file.
 
-See the schematics on how to build and connect to your vehicle.
-
 This version plays sounds at two different instances...
 
-1) when the key is first switched on (optional start-up sound) and
+1) when the key is first switched on (OPTIONAL start-up sound), and
 2) when you press the horn button.
 
 All sound files are stored on a microTF card as MP3 files. If you want only horn sounds (no start-up sounds), create a folder and name it "01" (without quotes). This is where your horns sounds will be stored. If you also want start-up sounds, create a second folder and name it "02" (without quotes). These folders need to be on the root of your microTF card and must contain at least one MP3 sound file.
