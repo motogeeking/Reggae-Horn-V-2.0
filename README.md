@@ -26,7 +26,7 @@ This version plays sounds at two different instances...
 1) when the key is first switched on (optional start-up sound) and
 2) when you press the horn button.
 
-All sound files are stored on a microTF card as MP3 files. If you want only horn sounds (no start-u sounds), create a folder and name it "01" (without quotes). This is where your horns sounds will be stored. If you also want start-up sounds, create a second folder and name it "02" (without quotes). These folders need to be on the root of your microTF card and must contain at least one MP3 sound file.
+All sound files are stored on a microTF card as MP3 files. If you want only horn sounds (no start-up sounds), create a folder and name it "01" (without quotes). This is where your horns sounds will be stored. If you also want start-up sounds, create a second folder and name it "02" (without quotes). These folders need to be on the root of your microTF card and must contain at least one MP3 sound file.
 
 NOTE: start-up sounds are optional. Do not create folder "02" if you don't want start-up sounds.                                           
 
