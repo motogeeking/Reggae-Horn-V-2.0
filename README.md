@@ -13,8 +13,9 @@ The code listing has instructions on how this horn is used. As far as connecting
 
 "This is not intended to be a replacement for a DOT approved horn. Use reponsibly". There... I said it.
 
+********************************************************************************************
 The following is taken from the code listing if you want to get a handle on how this works.
-
+********************************************************************************************
 
 A fun "horn" project for your motorcycle, or other vehicle, that can can play ANY sound you want in the form of an MP3 file.
 
