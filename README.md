@@ -1,7 +1,7 @@
 # Reggae-Horn-V-2.0
 A fun "horn" project for your motorcycle or other vehicle
 
-This is a project that I made for my little 125 SSR Razkull motorcycle. I found, by almost getting floored by a driver that was texting, that the stock horn is not very effective. So I decided to create a horn that really couldn't be ignored. Its LOUD, very effective and not too hard to build. I added a couple of "fun" features to this project also. The project uses a Pic12f1840, an 8 pin, 8 bit microcontroller. I am sure that it can be done with an arduino type micro, but this worked well for me. The code is heavily commented, so if you want to convert it to something else, you can get a handle on what I am doing. It is programmed using Great Cow Basic, a free basic compiler available here...
+This is a project that I made for my little 125 SSR Razkull motorcycle. I found, by almost getting flattened by a driver that was texting, that the stock horn is not very effective. So I decided to create a horn that really couldn't be ignored. Its LOUD, very effective and not too hard to build. I added a couple of "fun" features to this project also. The project uses a Pic12f1840, an 8 pin, 8 bit microcontroller. I am sure that it can be done with an arduino type micro, but this worked well for me. The code is heavily commented, so if you want to convert it to something else, you can get a handle on what I am doing. It is programmed using Great Cow Basic, a free basic compiler available here...
 
 http://gcbasic.sourceforge.net/Typesetter/index.php/Home
 
