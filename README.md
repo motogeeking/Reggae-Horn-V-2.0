@@ -9,7 +9,7 @@ along with a PicKit 3 to flash the Pic.
 
 The sound module is a DFPlayer Mini, a small MP3 player module that can play MP3 or WAV files when instructed by the micro.
 
-The code listing has instructions on how this horn is used. As far as connecting the circuit to your vehicle, the 12v power must come from a "switched" power line. This will kill the power to the circuit when the vehicle when the key is off, so your battery won't die unexpectedly. The input from your horn switch can be grabbed directly from the 2 spade lugs that connect to your existing horn. Just disconnect these from your horn and attach to the circuit. This connection is polarized, so check. One side is GND and the other is 12v when you press your horn button.
+The code listing has instructions on how this horn is used. As far as connecting the circuit to your vehicle, the 12v power must come from a "switched" power line. This will kill the power to the circuit when the key is off, so your battery won't die unexpectedly. The input from your horn switch can be grabbed directly from the 2 spade lugs that connect to your existing horn. Just disconnect these from your horn and attach to the circuit. This connection is opto-coupled and polarized, so check. One side is GND and the other is 12v when you press your horn button.
 
 "This is not intended to be a replacement for a DOT approved horn. Use reponsibly". There... I said it.
 
