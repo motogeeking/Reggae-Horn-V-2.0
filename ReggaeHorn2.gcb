@@ -95,7 +95,7 @@
 dir TX out                                  ' Set pin 7 to output - TX out to MP3 module RX
 dir RX in                                   ' Set pin 6 to input - RX in from MP3 module TX
 dir HornSw in                               ' Set pin 5 to input
-dir MP3Busy in                              ' Set pin 4 to input
+dir MP3Busy in                              ' Set pin 2 to input
 dir StartCycleVolPot in                     ' Set pin 3 to input
 
 On Interrupt UsartRX1Ready call MP3GetData  ' Set up interrupt for receiving data from MP3 module
