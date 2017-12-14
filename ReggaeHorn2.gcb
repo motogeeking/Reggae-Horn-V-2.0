@@ -84,8 +84,8 @@
 #define TX portA.0                          ' Pin 7  A.0, TX serial port (USART)
 #define RX portA.1                          ' Pin 6  A.1, RX serial port (USART)
 #define HornSw portA.2                      ' Pin 5  A.2, Horn switch input from opto -> low = on
-#define MP3Busy portA.5                     ' Pin 4  A.3, Busy line from MP3 -> low = busy
-#define StartCycleVolPot portA.4            ' pin 3  Analog In AN3 - Start sound volume pot
+#define MP3Busy portA.5                     ' Pin 2  A.5, Busy line from MP3 -> low = busy
+#define StartCycleVolPot portA.4            ' pin 3  Analog In AN3 - Start/cycle sound volume pot
 
 #define USART_BAUD_RATE 9600                ' Initializes USART port with 9600 baud
 #define USART_BLOCKING                      ' wait for USART to finish receiving or transmitting
