@@ -5,7 +5,7 @@ This is a project that I made for my little 125 SSR Razkull motorcycle. I found,
 
 http://gcbasic.sourceforge.net/Typesetter/index.php/Home
 
-along with a PicKit 3 to flash the Pic. This compiler is VERY cool and capable. It makes using Pics a whole lot easier and fun also. Not too much you can't do with this free and awesome tool. Give it a look!!!!
+along with a PicKit 3 to flash the Pic. This compiler is VERY cool and capable. It makes using Pics a whole lot easier and fun also. (It works with Atmel chips too!) Not too much you can't do with this free and awesome tool. Give it a look!!!!
 
 The sound module is a DFPlayer Mini, a small MP3 player module that can play MP3 or WAV files when instructed by the micro. The unit is triggered by an opto-coupled input directly from your horn. I am using a 60 watt audio amplifier module and horn speaker for this project, but any combination of amplifier and speaker that can take a line level audio input will work. I am mixing the stereo output down to mono, but this unit can output full high quality stereo sound.
 
