@@ -11,7 +11,7 @@ The sound module is a DFPlayer Mini, a small MP3 player module that can play MP3
 
 I have included some sample sounds that you can use to play with. In the "sample sounds" zip file you will find 2 folders. Copy folder 01 to your microTF card if you only want horn sounds. Copy both folders if you also want start-up sounds. These are just samples, you can use whatever you want for your sounds. Just remember, if this is your actual horn, make sure, for your own safety, that the sounds are effective.
 
-As far as connecting the circuit to your vehicle, the 12v power must come from a "switched" power source. This will kill the power to the circuit when the key is off, so your battery won't die unexpectedly. The input from your horn switch can be grabbed directly from the 2 spade lugs that connect to your existing horn. Just disconnect these from your horn and attach to the circuits horn input. This connection is opto-coupled and polarized, so check. One side is GND and the other is 12v when you press your horn button.
+As far as connecting the circuit to your vehicle, the 12v power must come from a "switched" power source. This will kill the power to the circuit when the key is off, so your battery won't drain unexpectedly. The input from your horn switch can be grabbed directly from the 2 spade lugs that connect to your existing horn. Just disconnect these from your horn and attach to the circuits horn input. This connection is opto-coupled and polarized, so check. One side is GND and the other is 12v when you press your horn button.
 
 THIS PROJECT IS A NOVELTY AND IS NOT INTENDED AS A SUBSTITUTE FOR A DOT APPROVED MOTOR VEHICLE HORN! USE RESPONSIBLY!
 There... I said it, you've been warned.
